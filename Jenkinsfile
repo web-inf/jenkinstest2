@@ -27,7 +27,7 @@ node {
       dir("${ARTIFACT_DIR}") {
         sh '''
           echo ${PACKAGE_TGZ_NAME}
-          java -jar  ${PACKAGE_TGZ_NAME}
+          java -jar  ./${PACKAGE_TGZ_NAME}
         '''
       }
     }
