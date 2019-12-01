@@ -3,7 +3,7 @@ node {
 
     stage("Init") {
       // 清理工作空间
-      cleanWs()
+      //cleanWs()
 
       // 拉取最新代码
       checkout scm
