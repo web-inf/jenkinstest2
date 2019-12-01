@@ -23,14 +23,10 @@ node {
 
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
       sh 'echo "$(pwd)"'
-      // 进入artifact目录，重命名压缩包
-      dir("${ARTIFACT_DIR}") {
+      // /root/.jenkins/workspace/jenkintest2
+
+      dir("$(pwd)/target") {
         sh '''
-          cd   ..
-          cd   ${MODULE_NAME}
-          echo ${PACKAGE_DIR}
-          echo ${ARTIFACT_DIR}
-          echo ${PACKAGE_TGZ_NAME}
           java -jar  ${PACKAGE_TGZ_NAME}
         '''
       }
