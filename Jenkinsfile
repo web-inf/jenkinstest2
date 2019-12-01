@@ -22,11 +22,13 @@ node {
       sh 'mvn package -Dmaven.test.skip=true'
 
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
+
     }
+      // java -jar  ./target/${PACKAGE_TGZ_NAME}
     stage('run') {
       sh '''
          cd  "$(pwd)"
-         java -jar  ./target/${PACKAGE_TGZ_NAME}
+         BUILD_ID=dontKillMe nohup java -jar ./target/${PACKAGE_TGZ_NAME}  &
       '''
     }
   }
