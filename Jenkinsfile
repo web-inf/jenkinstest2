@@ -30,7 +30,6 @@ node {
       dir("${ARTIFACT_DIR}") {
         sh '''
           echo ${PACKAGE_TGZ_NAME}
-          mv ${MODULE_NAME}/job-front.tar.gz  ${PACKAGE_TGZ_NAME}
         '''
         // 让Jenkins可以下载到这个压缩包
         archiveArtifacts "${PACKAGE_TGZ_NAME}"
