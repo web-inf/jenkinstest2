@@ -18,13 +18,6 @@ node {
     }
 
     stage('Package') {
-      sh '''
-        source /etc/profile
-        yarn config set registry ${NPM_REGISTRY}
-        yarn cache clean --force
-        yarn
-        yarn run build
-      '''
 
       sh 'mvn package -Dmaven.test.skip=true'
 
