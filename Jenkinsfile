@@ -22,7 +22,7 @@ node {
       sh 'mvn package -Dmaven.test.skip=true'
 
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
-
+      sh 'echo "$(pwd)"'
       // 进入artifact目录，重命名压缩包
       dir("${ARTIFACT_DIR}") {
         sh '''
