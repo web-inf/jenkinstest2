@@ -24,13 +24,12 @@ node {
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
       sh 'echo "$(pwd)"'
       // /root/.jenkins/workspace/jenkintest2
+    }
+    stage('run') {
       cd  $(pwd)
-
       sh '''
          java -jar  ./target/${PACKAGE_TGZ_NAME}
       '''
-
     }
-
   }
 }
