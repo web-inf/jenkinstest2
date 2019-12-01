@@ -26,9 +26,11 @@ node {
       // 进入artifact目录，重命名压缩包
       dir("${ARTIFACT_DIR}") {
         sh '''
+          cd ..
+          cd   ${MODULE_NAME}
           echo ${PACKAGE_DIR}
           echo ${PACKAGE_TGZ_NAME}
-          java -jar  ./${PACKAGE_TGZ_NAME}
+          java -jar  ${PACKAGE_TGZ_NAME}
         '''
       }
     }
