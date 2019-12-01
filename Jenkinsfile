@@ -24,7 +24,6 @@ node {
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
       sh '''
         mkdir -p ${PACKAGE_DIR}
-        cp -R target/job-front.tar.gz ${PACKAGE_DIR}
       '''
 
       // 进入artifact目录，重命名压缩包
