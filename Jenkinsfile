@@ -18,18 +18,27 @@ node {
     }
 
     stage('Package') {
+      sh '''
+        source /etc/profile
+        yarn config set registry ${NPM_REGISTRY}
+        yarn cache clean --force
+        yarn
+        yarn run build
+      '''
 
       sh 'mvn package -Dmaven.test.skip=true'
 
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
       sh '''
         mkdir -p ${PACKAGE_DIR}
+        cp -R target/job-front.tar.gz ${PACKAGE_DIR}
       '''
 
       // 进入artifact目录，重命名压缩包
       dir("${ARTIFACT_DIR}") {
         sh '''
           echo ${PACKAGE_TGZ_NAME}
+          mv ${MODULE_NAME}/job-front.tar.gz  ${PACKAGE_TGZ_NAME}
         '''
         // 让Jenkins可以下载到这个压缩包
         archiveArtifacts "${PACKAGE_TGZ_NAME}"
