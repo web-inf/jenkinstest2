@@ -29,6 +29,7 @@ node {
           cd   ..
           cd   ${MODULE_NAME}
           echo ${PACKAGE_DIR}
+          echo ${ARTIFACT_DIR}
           echo ${PACKAGE_TGZ_NAME}
           java -jar  ${PACKAGE_TGZ_NAME}
         '''
