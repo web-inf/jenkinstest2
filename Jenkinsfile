@@ -25,9 +25,9 @@ node {
       sh 'echo "$(pwd)"'
       // /root/.jenkins/workspace/jenkintest2
 
-      dir("$(pwd)/target") {
+      dir("$(pwd)") {
         sh '''
-          java -jar  ${PACKAGE_TGZ_NAME}
+          java -jar  ./target/${PACKAGE_TGZ_NAME}
         '''
       }
     }
