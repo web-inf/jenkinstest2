@@ -1,5 +1,5 @@
 node {
-  withEnv(["PATH=${tool params.JENKINS_MVN_TOOL_NAME}/bin:${env.PATH}","PACKAGE_DIR=${ARTIFACT_DIR}/${MODULE_NAME}","PACKAGE_TGZ_NAME=${MODULE_NAME}-${MODULE_VERSION}.tar.gz"]){
+  withEnv(["PATH=${tool params.JENKINS_MVN_TOOL_NAME}/bin:${env.PATH}","PACKAGE_DIR=${ARTIFACT_DIR}/${MODULE_NAME}","PACKAGE_TGZ_NAME=${MODULE_NAME}-${MODULE_VERSION}.jar"]){
 
     stage("Init") {
       // 清理工作空间
