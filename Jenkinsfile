@@ -24,8 +24,8 @@ node {
       // 将安装包放到(PACKAGE_DIR)artifact/job-front/目录下
     }
     stage('run') {
-      cd  '$(pwd)'
       sh '''
+         cd  "$(pwd)"
          java -jar  ./target/${PACKAGE_TGZ_NAME}
       '''
     }
